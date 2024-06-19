@@ -10,8 +10,8 @@ import java.util.List;
 
 @Getter
 @Setter
-@Entity
-public class Use extends BaseModel {
+@Entity(name="User_Table")
+public class User extends BaseModel {
     private String name;
     private String email;
     @OneToMany
