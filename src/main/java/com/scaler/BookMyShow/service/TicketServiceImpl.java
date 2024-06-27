@@ -3,7 +3,6 @@ package com.scaler.BookMyShow.service;
 import com.scaler.BookMyShow.exception.ShowSeatAlreadyBookedException;
 import com.scaler.BookMyShow.models.ShowSeat;
 import com.scaler.BookMyShow.models.Ticket;
-import com.scaler.BookMyShow.models.User;
 import com.scaler.BookMyShow.models.constants.ShowSeatStatus;
 import com.scaler.BookMyShow.repository.ShowSeatRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +20,7 @@ public class TicketServiceImpl implements TicketService{
 
     @Override
     @Transactional(isolation= Isolation.SERIALIZABLE)
-    public Ticket bookTicket(List<Integer> showSeatIds, User user) throws ShowSeatAlreadyBookedException {
+    public Ticket bookTicket(List<Integer> showSeatIds, int userId) throws ShowSeatAlreadyBookedException {
         //TODO - optimize the DB calls
         //check the status of all the seats -> if anyone of them is not available, throw exception
         for(Integer showSeatId :  showSeatIds){
